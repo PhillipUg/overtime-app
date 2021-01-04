@@ -1,14 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>OvertimeApp</title>
-    <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
+<head>
+  <title>OvertimeApp</title>
+  <%= csrf_meta_tags %>
 
-  <body class="container">
-    <%= yield %>
-  </body>
+    <%= stylesheet_link_tag 'application' , media: 'all' , 'data-turbolinks-track': 'reload' %>
+      <%= javascript_include_tag 'application' , 'data-turbolinks-track': 'reload' %>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <%= render 'shared/nav' %>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>
