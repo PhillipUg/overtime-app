@@ -3,22 +3,32 @@
 require 'rails_helper'
 
 describe 'navigate' do
+  let(:user) { User.create!(email: 'test@test.com', password: 'secret', password_confirmation: 'secret', first_name: 'John', last_name: 'mcntyre') }
+  before do
+    login_as(user, scope: :user)
+  end
   describe 'index' do
-    it 'can be reached successfully' do
+    before do
       visit posts_path
+    end
+    it 'can be reached successfully' do
       expect(page.status_code).to eq(200)
     end
 
     it 'has a title of Posts' do
-      visit posts_path
       expect(page).to have_content(/Posts/)
+    end
+
+    it 'has a list of posts' do
+      Post.create!(date: Date.today, rationale: 'post 1', user_id: user.id)
+      Post.create!(date: Date.today, rationale: 'post 2', user_id: user.id)
+      visit posts_path
+      expect(page).to have_content(/post 1|post 2/)
     end
   end
 
   describe 'creation' do
     before do
-      user = User.create!(email: 'test@test.com', password: 'secret', password_confirmation: 'secret', first_name: 'John', last_name: 'mcntyre')
-      login_as(user, :scope => :user)
       visit new_post_path
     end
     it 'has a new form that can be reached' do
@@ -37,7 +47,7 @@ describe 'navigate' do
       fill_in 'post[rationale]', with: 'some rationale with user'
       click_on 'Save'
 
-      expect(User.last.posts.last.rationale).to eq("some rationale with user")
+      expect(User.last.posts.last.rationale).to eq('some rationale with user')
     end
   end
 end

@@ -1,6 +1,10 @@
+# frozen_string_literal: true
+
 class PostsController < ApplicationController
   before_action :set_post, only: [:show]
-  def index; end
+  def index
+    @posts = Post.all
+  end
 
   def new
     @post = Post.new
