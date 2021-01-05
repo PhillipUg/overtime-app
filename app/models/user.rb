@@ -6,4 +6,8 @@ class User < ApplicationRecord
 
   validates_presence_of :first_name, :last_name
   has_many :posts
+
+  def full_name
+    "#{last_name.capitalize}, #{first_name.capitalize}"
+  end
 end
