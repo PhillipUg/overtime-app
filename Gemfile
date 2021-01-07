@@ -15,6 +15,8 @@ gem 'bootstrap-sass'
 
 gem 'devise', '~>4.2'
 
+gem 'gritter', '~> 1.2'
+
 
 group :development, :test do
   gem 'byebug', platform: :mri
