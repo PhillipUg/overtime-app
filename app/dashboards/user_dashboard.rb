@@ -9,16 +9,16 @@ class UserDashboard < Administrate::BaseDashboard
   # on pages throughout the dashboard.
   ATTRIBUTE_TYPES = {
     id: Field::Number,
-    first_name: Field::String,
-    last_name: Field::String,
-    email: Field::String,
-    password: Field::String,
+    first_name: Field::String.with_options(searchable: true),
+    last_name: Field::String.with_options(searchable: true),
+    email: Field::String.with_options(searchable: true),
+    password: Field::String.with_options(searchable: false),
     posts: Field::HasMany,
     sign_in_count: Field::Number,
     current_sign_in_at: Field::DateTime,
     last_sign_in_at: Field::DateTime,
-    current_sign_in_ip: Field::String.with_options(searchable: false),
-    last_sign_in_ip: Field::String.with_options(searchable: false),
+    current_sign_in_ip: Field::String,
+    last_sign_in_ip: Field::String,
     type: Field::String,
     created_at: Field::DateTime,
     updated_at: Field::DateTime
@@ -30,10 +30,11 @@ class UserDashboard < Administrate::BaseDashboard
   # By default, it's limited to four items to reduce clutter on index pages.
   # Feel free to add, remove, or rearrange items.
   COLLECTION_ATTRIBUTES = %i[
-    posts
-    id
+    first_name
+    last_name
     email
     type
+    posts
   ].freeze
 
   # SHOW_PAGE_ATTRIBUTES
