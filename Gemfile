@@ -17,6 +17,9 @@ gem 'devise', '~>4.2'
 
 gem 'gritter', '~> 1.2'
 
+gem 'administrate'
+gem 'bourbon'
+
 
 group :development, :test do
   gem 'byebug', platform: :mri
