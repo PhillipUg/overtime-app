@@ -14,12 +14,18 @@
 	</li>
 
 	<li class="dropdown pull-right">
-		<a class="dropdown-toggle" href="#" data-toggle="dropdown">Account <strong class="caret"></strong></a>
+		<a class="dropdown-toggle" href="#" data-toggle="dropdown">Options <strong class="caret"></strong></a>
 		<ul class="dropdown-menu">
-			<li>
-				<%= link_to "TODO: Admin Dashboard" , root_path %>
-			</li>
-			<li class="divider"></li>
+
+			<!-- TODO -->
+			<% if current_user && current_user.type == 'AdminUser' %>
+				<li>
+					<%= link_to "Admin Dashboard" , admin_root_path %>
+				</li>
+				<li class="divider"></li>
+			<% end %>
+			<!-- TODO -->
+			
 			<li>
 				<%= link_to "Logout" , destroy_user_session_path, method: :delete %>
 			</li>
