@@ -74,16 +74,13 @@ describe 'navigate' do
 
   describe 'edit' do
     before do
-      @post = create(:post)
+      @edit_user = create(:user)
+      login_as(@edit_user, scope: :user)
+      @edit_post = create(:post, user: @edit_user)
     end
-    it 'can be reached by clicking edit on index page' do
-      visit posts_path
-      click_link("edit_#{@post.id}")
-      expect(page.status_code).to eq(200)
-    end
-
+  
     it 'can be edited' do
-      visit edit_post_path(@post)
+      visit edit_post_path(@edit_post)
       fill_in 'post[date]', with: Date.tomorrow
       fill_in 'post[rationale]', with: 'edited content'
       click_on 'Save'

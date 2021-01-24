@@ -29,5 +29,15 @@ describe 'navigate' do
 
       expect(page).to_not have_content('Approved')
     end
+
+    it 'cannot be editted by a non-authorized user' do
+      logout(:user)
+      user = create(:non_authorized_user)
+      login_as(user, scope: :user)
+
+      visit edit_post_path(@post)
+
+      expect(current_path).to eq(root_path)
+    end
   end
 end
