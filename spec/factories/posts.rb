@@ -12,4 +12,10 @@ FactoryBot.define do
     rationale { 'Some More Content' }
     user
   end
+
+  factory :third_post, class: 'Post' do
+    date { Date.yesterday }
+    rationale { 'Some More Content' }
+    user
+  end
 end

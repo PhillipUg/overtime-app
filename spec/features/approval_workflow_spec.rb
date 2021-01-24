@@ -37,7 +37,7 @@ describe 'navigate' do
 
       visit edit_post_path(@post)
 
-      expect(current_path).to eq(root_path)
+      expect(current_path).to eq(posts_path)
     end
   end
 end

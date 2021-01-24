@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 describe 'navigate' do
-  let(:user) { create(:user) }
   before do
-    login_as(user, scope: :user)
+    @user = create(:user)
+    login_as(@user, scope: :user)
   end
   describe 'index' do
     before do
@@ -20,10 +20,22 @@ describe 'navigate' do
     end
 
     it 'has a list of posts' do
-      create(:post)
-      create(:second_post)
+      create(:post, user: @user)
+      create(:second_post, user: @user)
       visit posts_path
       expect(page).to have_content(/Some Rationale|Some More Content/)
+    end
+
+    it 'is scoped so that only post creators can see their posts' do
+      create(:post, user: @user)
+      create(:second_post, user: @user)
+      other_user = create(:non_authorized_user)
+      create(:third_post, rationale: 'blah blah', user: other_user)
+
+      login_as(@user, scope: :user)
+      visit posts_path
+
+      expect(page).to_not have_content(/blah blah/)
     end
   end
 
@@ -38,12 +50,13 @@ describe 'navigate' do
 
   describe 'delete' do
     before do
-      @post = create(:post)
+      @post = create(:post, user: @user)
     end
     it 'can be deleted' do
       visit posts_path
 
-       click_link("delete_post_#{@post.id}")
+      click_link("delete_post_#{@post.id}")
+
       expect(page.status_code).to eq(200)
     end
   end

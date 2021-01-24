@@ -10,6 +10,6 @@ class ApplicationController < ActionController::Base
 
   def user_not_authorized
     flash[:notice] = 'You are not authorized to perform this action!'
-    redirect_to root_path
+    redirect_to posts_path
   end
 end
