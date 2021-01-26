@@ -9,7 +9,7 @@
     <%= post.user.full_name %>
   </td>
   <td>
-    <%= truncate(post.rationale, length: 20) %>
+    <%= link_to truncate(post.rationale, length: 20), post %>
   </td>
   <td>
     <%= post.overtime_request %>
