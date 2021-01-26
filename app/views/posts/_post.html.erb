@@ -12,6 +12,9 @@
     <%= truncate(post.rationale, length: 20) %>
   </td>
   <td>
+    <%= post.overtime_request %>
+  </td>
+  <td>
     <%= status_label(post.status) %>
   </td>
   <td>
