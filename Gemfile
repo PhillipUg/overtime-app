@@ -17,7 +17,7 @@ gem 'devise', '~>4.2'
 
 gem 'gritter', '~> 1.2'
 gem 'pundit'
-
+gem 'twilio-ruby'
 gem 'administrate'
 gem 'bourbon'
 
