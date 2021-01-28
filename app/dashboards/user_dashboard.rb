@@ -13,6 +13,7 @@ class UserDashboard < Administrate::BaseDashboard
     last_name: Field::String.with_options(searchable: true),
     email: Field::String.with_options(searchable: true),
     password: Field::String.with_options(searchable: false),
+    phone: Field::String.with_options(searchable: true),
     posts: Field::HasMany,
     sign_in_count: Field::Number,
     current_sign_in_at: Field::DateTime,
@@ -33,6 +34,7 @@ class UserDashboard < Administrate::BaseDashboard
     first_name
     last_name
     email
+    phone
     type
     posts
   ].freeze
@@ -44,6 +46,7 @@ class UserDashboard < Administrate::BaseDashboard
     first_name
     last_name
     email
+    phone
     type
     posts
     sign_in_count
@@ -62,6 +65,7 @@ class UserDashboard < Administrate::BaseDashboard
     first_name
     last_name
     email
+    phone
     password
     type
   ].freeze
