@@ -4,6 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  PHONE_REGEX = /\A\d{10}\Z/
+
+  validates_format_of :phone, with: PHONE_REGEX
+  validates :phone, length: { is: 10 }
   validates_presence_of :first_name, :last_name, :phone
   has_many :posts
 
