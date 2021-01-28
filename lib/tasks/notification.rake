@@ -6,5 +6,4 @@ namespace :notification do
     # 3. Skip Admin Users
     # 4. Send a message that has instructions and a link to log overtime
   end
-
 end
