@@ -8,15 +8,15 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 user1 = User.create!(email: 'test@email.com', password: 'cash1234', password_confirmation: 'cash1234', first_name: 'John',
-                     last_name: 'mcntyre')
+                     last_name: 'mcntyre', phone: "0787839614")
 
 user2 = User.create!(email: 'broody@email.com', password: 'cash1234', password_confirmation: 'cash1234', first_name: 'Broody',
-                     last_name: 'Hank')
+                     last_name: 'Hank', phone: "0787839614")
 
 puts '1 User created'
 
 AdminUser.create!(email: 'cashguy@email.com', password: 'cash1234', password_confirmation: 'cash1234',
-                          first_name: 'cash', last_name: 'guy')
+                          first_name: 'cash', last_name: 'guy', phone: "0787839614")
 
 puts '1 AdminUser created'
 
