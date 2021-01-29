@@ -1,30 +1,7 @@
-<h1>Hi, Admin</h1>
-
-<!-- <div class="container-fluid"> -->
-  <div class="pending-homepage row">
-    <div class="homepage-block col-md-3">
-      <p>sdsdsdssadasdasd</p>
-    </div>
-    <div class="homepage-block col-md-3">
-      <p>sdsdsdssadasdasd</p>
-    </div>
-    <div class="homepage-block col-md-3">
-      <p>sdsdsdssadasdasd</p>
-    </div>
-    <div class="homepage-block col-md-3">
-      <p>sdsdsdssadasdasd</p>
-    </div>
-    <div class="homepage-block col-md-3">
-      <p>sdsdsdssadasdasd</p>
-    </div>
-    <div class="homepage-block col-md-3">
-      <p>sdsdsdssadasdasd</p>
-    </div>
-    <div class="homepage-block col-md-3">
-      <p>sdsdsdssadasdasd</p>
-    </div>
-  </div>
-<!-- </div> -->
+<div class="pending-homepage row">
+<h2>Items Pending Your Approval</h2>
+  <%= render partial: 'pending_approval', local: {pending_approvals: @pending_approvals} %>
+</div>
 
 <div class="pending-homepage row">
   <div class="homepage-block col-md-3">
