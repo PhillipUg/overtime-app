@@ -1,28 +1,13 @@
 <div class="pending-homepage row">
-<h2>Items Pending Your Approval</h2>
-  <%= render partial: 'pending_approval', local: {pending_approvals: @pending_approvals} %>
+  <h2>Items Pending Your Approval</h2>
+  <%= render partial: 'pending_approval' , local: {pending_approvals: @pending_approvals} %>
 </div>
 
-<div class="pending-homepage row">
-  <div class="homepage-block col-md-3">
-    <p>sdsdsdssadasdasd</p>
+<div class="pending-homepage">
+  <h2>Confirmation Log</h2>
+  <div class="row">
+    <%= render partial: 'confirmation_log' , local: {pending_approvals: @recent_audit_items} %>
   </div>
-  <div class="homepage-block col-md-3">
-    <p>sdsdsdssadasdasd</p>
-  </div>
-  <div class="homepage-block col-md-3">
-    <p>sdsdsdssadasdasd</p>
-  </div>
-  <div class="homepage-block col-md-3">
-    <p>sdsdsdssadasdasd</p>
-  </div>
-  <div class="homepage-block col-md-3">
-    <p>sdsdsdssadasdasd</p>
-  </div>
-  <div class="homepage-block col-md-3">
-    <p>sdsdsdssadasdasd</p>
-  </div>
-  <div class="homepage-block col-md-3">
-    <p>sdsdsdssadasdasd</p>
-  </div>
+  <hr>
+  <%= link_to "View All Logs" , audit_logs_path, class: 'btn btn-primary btn-block' %>
 </div>
