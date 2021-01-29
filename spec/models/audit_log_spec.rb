@@ -27,7 +27,7 @@ RSpec.describe AuditLog, type: :model do
     end
 
     it 'should have a start date equal to 6 days prior' do
-      new_audit_log = AuditLog.create(user: User.last)
+      new_audit_log = AuditLog.create(user: User.first)
       expect(new_audit_log.start_date).to eq(Date.today - 6.days)
     end
   end

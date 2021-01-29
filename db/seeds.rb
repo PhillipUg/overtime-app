@@ -22,9 +22,16 @@ puts '1 AdminUser created'
 
 users = [user1, user2]
 statuses = %w[submitted approved rejected]
+states = %w[confirmed pending]
 
 100.times do |post|
   Post.create!(date: Date.today, rationale: "#{post} rationale content", user: users.sample, overtime_request: rand(0.0..50.0).round(1), status: statuses.sample)
 end
 
 puts '100 Posts have been created'
+
+100.times do
+  AuditLog.create!(user: users.sample, start_date: (Date.today - 6.days), status: states.sample)
+end
+
+puts '100 Audit Logs have been created'
