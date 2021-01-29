@@ -3,6 +3,10 @@ module ApplicationHelper
     'active' if current_page?(path)
   end
 
+  def admin_types
+    ['AdminUser']
+  end
+
   def status_label(status)
     status_span_generator(status)
   end
