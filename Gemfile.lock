@@ -284,6 +284,7 @@ DEPENDENCIES
   gritter (~> 1.2)
   jbuilder (~> 2.5)
   jquery-rails
+  kaminari
   listen (~> 3.0.5)
   pg (~> 0.18)
   puma (~> 3.0)
