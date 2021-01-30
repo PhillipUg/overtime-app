@@ -24,14 +24,15 @@ users = [user1, user2]
 statuses = %w[submitted approved rejected]
 lorem_ipsum = %w[Lorem Ipsum has been the industry standard dummy text ever since the 1500s when an unknown printer
                  took a galley of type and scrambled it to make a type specimen book It has survived not only five centuries but also the leap into electronic typesetting remaining essentially unchanged]
-
+mydate = Date.today + 1.day
+                 
 100.times do
-  Post.create!(date: Date.today, rationale: lorem_ipsum.shuffle.join(' '), user: users.sample,
-               overtime_request: rand(0.0..50.0).round(1), status: statuses.sample)
+  Post.create(date: (mydate - rand(50).days), rationale: lorem_ipsum.shuffle.join(' '), user: users.sample,
+  overtime_request: rand(0.0..50.0).round(1), status: statuses.sample)
+  # byebug
 end
 
 puts '100 Posts have been created'
-mydate = Date.today + 1.day
 10.times do
   AuditLog.create!(user: users.sample, start_date: (mydate -= 7.days), status: 'pending')
 end
