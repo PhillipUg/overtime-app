@@ -15,7 +15,7 @@ user2 = User.create!(email: 'broody@email.com', password: 'cash1234', password_c
 
 puts '1 User created'
 
-AdminUser.create!(email: 'cashguy@email.com', password: 'cash1234', password_confirmation: 'cash1234',
+AdminUser.create!(email: 'cashguy256@email.com', password: 'cash1234', password_confirmation: 'cash1234',
                   first_name: 'cash', last_name: 'guy', phone: '0787839614')
 
 puts '1 AdminUser created'
