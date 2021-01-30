@@ -31,9 +31,9 @@ lorem_ipsum = %w[Lorem Ipsum has been the industry standard dummy text ever sinc
 end
 
 puts '100 Posts have been created'
-mydate = Date.today
+mydate = Date.today + 1.day
 10.times do
-  AuditLog.create!(user: users.sample, start_date: (mydate -= 6.days), status: 'pending')
+  AuditLog.create!(user: users.sample, start_date: (mydate -= 7.days), status: 'pending')
 end
 
 puts '100 Audit Logs have been created'
