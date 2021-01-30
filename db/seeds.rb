@@ -26,15 +26,15 @@ states = %w[confirmed pending]
 lorem_ipsum = %w[Lorem Ipsum has been the industry standard dummy text ever since the 1500s when an unknown printer
                  took a galley of type and scrambled it to make a type specimen book It has survived not only five centuries but also the leap into electronic typesetting remaining essentially unchanged]
 
-100.times do |post|
-  Post.create!(date: Date.today, rationale: lorem_ipsum.shuffle.join(" "), user: users.sample,
+100.times do
+  Post.create!(date: Date.today, rationale: lorem_ipsum.shuffle.join(' '), user: users.sample,
                overtime_request: rand(0.0..50.0).round(1), status: statuses.sample)
 end
 
 puts '100 Posts have been created'
-
-100.times do
-  AuditLog.create!(user: users.sample, start_date: (Date.today - 6.days), status: states.sample)
+mydate = Date.today
+10.times do
+  AuditLog.create!(user: users.sample, start_date: (mydate -= 6.days), status: states.sample)
 end
 
 puts '100 Audit Logs have been created'
