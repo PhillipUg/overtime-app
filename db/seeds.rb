@@ -22,7 +22,6 @@ puts '1 AdminUser created'
 
 users = [user1, user2]
 statuses = %w[submitted approved rejected]
-states = %w[confirmed pending]
 lorem_ipsum = %w[Lorem Ipsum has been the industry standard dummy text ever since the 1500s when an unknown printer
                  took a galley of type and scrambled it to make a type specimen book It has survived not only five centuries but also the leap into electronic typesetting remaining essentially unchanged]
 
@@ -34,7 +33,7 @@ end
 puts '100 Posts have been created'
 mydate = Date.today
 10.times do
-  AuditLog.create!(user: users.sample, start_date: (mydate -= 6.days), status: states.sample)
+  AuditLog.create!(user: users.sample, start_date: (mydate -= 6.days), status: 'pending')
 end
 
 puts '100 Audit Logs have been created'
